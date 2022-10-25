@@ -21,7 +21,16 @@ This app was designed and implemented by Ammon Orgill and Matthew Walters in a 5
 
 # User Stories
 
-(copypasta userstories here)
+As a student, I want to:
+- Search for a teacher of my instrument of choice
+- Read reviews and view the overall rating
+- Send an inquiry to a teacher, provides availability, what they’re looking for
+- Add/edit/delete a review/rating
+
+As a teacher, I want to: 
+- Create/edit a teacher account and profile
+- View lesson inquiries, mark as "Seen", and sort inquiries accordingly
+
 
 # Sprint Breakdown
 

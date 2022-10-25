@@ -1,6 +1,7 @@
-# ScaleSkills
+# Musicly
 
 ScaleSkills is a fullstack app connecting students to music teachers. Aspiring student musicians looking for remote musical education can find highly rated instructors for their instrument of choice and send inquiries for instruction. Music teachers are provided a platform to reach students anywhere in the world. 
+
 
 # Tech Stack
 
@@ -13,13 +14,11 @@ ScaleSkills is a fullstack app connecting students to music teachers. Aspiring s
 * Python
 * Javascript
 
-# Wireframes
-
-(insert wireframes here)
 
 # The team
 
 This app was designed and implemented by Ammon Orgill and Matthew Walters in a 5 day sprint.
+
 
 # User Stories
 
@@ -40,10 +39,17 @@ Students can begin their search by selecting their instrument of choice from a d
 
 Teachers can begin by selecting the "Signup" button which takes them to a form to input their name, username, and a password. After signing up, teachers are taken to another form where they can begin filling out their profile information (including all detail fields listed in above paragraph.) After submitting the form, teachers are taken to their Teacher Dashboard. Once they receive an inquiry, the inquiry card will be displayed. Teachers can sort their inquiries by "Viewed" or "New". Each inquiry card will have a button to mark the inquiry as "Viewed."
 
+---
 # Wireframes
 
 <img width=500px src='./public/Wireframes.png' />
 
+---
+# ERD
+
+<img width=500px src='./public/ERD.png' />
+
+---
 # Sprint Breakdown
 
 * Day one (Wednesday):

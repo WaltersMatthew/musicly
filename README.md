@@ -1,121 +1,70 @@
-# Musicly
+# Getting Started with Create React App
 
-Musicly is a fullstack app connecting students to music teachers. Aspiring student musicians looking for remote musical education can find highly rated instructors for their instrument of choice and send inquiries for instruction. Music teachers are provided a platform to reach students anywhere in the world. 
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Scripts
 
-# Tech Stack
+In the project directory, you can run:
 
-* PostgreSQL
-* Django
-* React
-* Next.js
-* Axios
-* Tailwind CSS
-* Python
-* Javascript
+### `npm start`
 
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-# The team
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-This app was designed and implemented by Ammon Orgill and Matthew Walters in a 5 day sprint.
+### `npm test`
 
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-# User Stories
+### `npm run build`
 
-As a student, I want to:
-- Search for a teacher of my instrument of choice
-- Read reviews and view the overall rating
-- Send an inquiry to a teacher, provides availability, what they’re looking for
-- Add/edit/delete a review/rating
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-As a teacher, I want to: 
-- Create/edit a teacher account and profile
-- View lesson inquiries, mark as "Seen", and sort inquiries accordingly
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-# App Flow
-The app home page displays two sections, one for students to begin their music teacher search, one for teachers to signup or login. 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-Students can begin their search by selecting their instrument of choice from a drop down menu. After selecting "Search," users are taken to a results page displaying teacher profile cards with their photo and high-level information, namely name, location, years of experience, and rating. Students can click on a profile card to view the teacher's full bio, including name, location, years of experience, rating, instruments they teach, and student reviews. Two buttons are located below the primary profile information, including on this page, including "Leave "Go back to search results", "Start a new search", and "Send inq"
+### `npm run eject`
 
-Teachers can begin by selecting the "Signup" button which takes them to a form to input their name, username, and a password. After signing up, teachers are taken to another form where they can begin filling out their profile information (including all detail fields listed in above paragraph.) After submitting the form, teachers are taken to their Teacher Dashboard. Once they receive an inquiry, the inquiry card will be displayed. Teachers can sort their inquiries by "Viewed" or "New". Each inquiry card will have a button to mark the inquiry as "Viewed."
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
----
-# Wireframes
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-<img width=500px src='./public/Wireframes.png' />
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
----
-# ERD
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-<img width=500px src='./public/ERDs.png' />
+## Learn More
 
----
-# RESTful Routing
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-### Students
-| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
-| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
-| POST        | /students           | C    | create new user                                             |       |
-| POST        | /students/login     | C    | accept a payload of form data and use it to login a student |       |
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Teachers
-| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
-| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
-| POST        | /teachers           | C    | create new user                                             |       |
-| GET         | /teachers/:id       | R    | show a specific teacher's profile                           |       |
-| PUT         | /teachers/:id       | U    | edit a teacher's profile                                    |       |
-| POST        | /teachers/login     | C    | accept a payload of form data and use it to login a teacher |       |
+### Code Splitting
 
-### Search
-| HTTP METHOD | URL (_Nouns_)         | CRUD | Response                                                  | Notes |
-| ------------| -------------         | ---- | --------------------------------------------------------- | ----- |
-| GET         | /search/:instrumentId | R    | show a teacher's profile based on instrument id           |       |
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Inquiries
-| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
-| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
-| POST        | /inquiries          | C    | create a new inquiry                                        |       |
-| GET         | /inquiries/:id      | R    | show an inquiry                                             |       |
-| PUT         | /inquiries/:id      | U    | edit an inquiry                                             |       |
+### Analyzing the Bundle Size
 
-### Reviews
-| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
-| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
-| POST        | /reviews            | C    | create a new review                                         |       |
-| GET         | /reviews/:id        | R    | show a review                                               |       |
-| PUT         | /reviews/:id        | U    | edit a review                                               |       |
-| DELETE      | /reviews/id         | D    | delete a review                                             |       |
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
----
-# Sprint Breakdown
+### Making a Progressive Web App
 
-* Day one (Wednesday):
-    * create databases 
-    * stub out backend Django routes
-* Day two (Thursday):
-    * ensure data CRUD with Django admin profile
-    * Stub out Next.js routes
-* Day three (Friday):
-    * Create front-end forms for lesson inquiries 
-    * Create teacher dashboard/profile
-    * Create rough partials for navbar/footer
-* Day four (Saturday):
-    * Finish up routing and ensure functionality on all pages
-    * Get pages in rough layouts to match wireframes
-* Day five (Sunday):
-    * tweak CSS, ensure color/style cohesion
-    * clean up code and deploy
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
+### Advanced Configuration
 
-# MVP
-- Render a home page, search results page, teacher profile page, and teacher dashboard page
-- Render sign up forms, login forms, and music teacher inquiry forms 
-- Set up sequelize ORM models and tables
-- Connect to backend server and databases using Django and RESTful routing principles
-- Deployed online
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
+### Deployment
 
-# Stretch Goals
-- Location-based search
-- Students can create profile pages
-- Option to send an email that opens up outlook
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

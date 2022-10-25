@@ -47,14 +47,50 @@ Teachers can begin by selecting the "Signup" button which takes them to a form t
 ---
 # ERD
 
-<img width=500px src='./public/ERD.png' />
+<img width=500px src='./public/ERDs.png' />
+
+---
+# RESTful Routing
+
+### Students
+| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
+| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
+| POST        | /students           | C    | create new user                                             |       |
+| POST        | /students/login     | C    | accept a payload of form data and use it to login a student |       |
+
+### Teachers
+| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
+| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
+| POST        | /teachers           | C    | create new user                                             |       |
+| GET         | /teachers/:id       | R    | show a specific teacher's profile                           |       |
+| PUT         | /teachers/:id       | U    | edit a teacher's profile                                    |       |
+| POST        | /teachers/login     | C    | accept a payload of form data and use it to login a teacher |       |
+
+### Search
+| HTTP METHOD | URL (_Nouns_)         | CRUD | Response                                                  | Notes |
+| ------------| -------------         | ---- | --------------------------------------------------------- | ----- |
+| GET         | /search/:instrumentId | R    | show a teacher's profile based on instrument id           |       |
+
+### Inquiries
+| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
+| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
+| POST        | /inquiries          | C    | create a new inquiry                                        |       |
+| GET         | /inquiries/:id      | R    | show an inquiry                                             |       |
+| PUT         | /inquiries/:id      | U    | edit an inquiry                                             |       |
+
+### Inquiries
+| HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
+| ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
+| POST        | /reviews            | C    | create a new review                                         |       |
+| GET         | /reviews/:id        | R    | show a review                                               |       |
+| PUT         | /reviews/:id        | U    | edit a review                                               |       |
+| DELETE      | /reviews/id         | D    | delete a review                                             |       |
 
 ---
 # Sprint Breakdown
 
 * Day one (Wednesday):
     * create databases 
-
     * stub out backend Django routes
 * Day two (Thursday):
     * ensure data CRUD with Django admin profile

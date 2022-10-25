@@ -36,9 +36,13 @@ As a teacher, I want to:
 # App Flow
 The app home page displays two sections, one for students to begin their music teacher search, one for teachers to signup or login. 
 
-Students can begin their search by selecting their instrument of choice from a drop down menu. After selecting "Search," users are taken to a results page displaying teacher profile cards with their photo and high-level information, namely name, location, years of experience, and rating. Students can click on a profile card to view the teacher's full bio, including name, location, years of experience, rating, instruments they teach, and student reviews. Two buttons are located below the primary profile information, including on this page, including "Leave "Go back to search results", "Start a new search", and "Send inq
+Students can begin their search by selecting their instrument of choice from a drop down menu. After selecting "Search," users are taken to a results page displaying teacher profile cards with their photo and high-level information, namely name, location, years of experience, and rating. Students can click on a profile card to view the teacher's full bio, including name, location, years of experience, rating, instruments they teach, and student reviews. Two buttons are located below the primary profile information, including on this page, including "Leave "Go back to search results", "Start a new search", and "Send inq"
 
 Teachers can begin by selecting the "Signup" button which takes them to a form to input their name, username, and a password. After signing up, teachers are taken to another form where they can begin filling out their profile information (including all detail fields listed in above paragraph.) After submitting the form, teachers are taken to their Teacher Dashboard. Once they receive an inquiry, the inquiry card will be displayed. Teachers can sort their inquiries by "Viewed" or "New". Each inquiry card will have a button to mark the inquiry as "Viewed."
+
+# Wireframes
+
+<img width=500px src='./public/Wireframes.png' />
 
 # Sprint Breakdown
 

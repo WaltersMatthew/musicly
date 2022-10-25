@@ -14,6 +14,7 @@ Musicly is a fullstack app connecting students to music teachers. Aspiring stude
 * Python
 * Javascript
 
+Find the server repo [here](https://github.com/Shazammon/musicly_server)
 
 # The team
 

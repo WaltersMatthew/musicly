@@ -78,7 +78,7 @@ Teachers can begin by selecting the "Signup" button which takes them to a form t
 | GET         | /inquiries/:id      | R    | show an inquiry                                             |       |
 | PUT         | /inquiries/:id      | U    | edit an inquiry                                             |       |
 
-### Inquiries
+### Reviews
 | HTTP METHOD | URL (_Nouns_)       | CRUD | Response                                                    | Notes |
 | ------------| -------------       | ---- | ----------------------------------------------------------  | ----- |
 | POST        | /reviews            | C    | create a new review                                         |       |

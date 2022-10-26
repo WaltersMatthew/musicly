@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 export default function TeacherRegister(){
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
+
+    const navigate = useNavigate()
 
     const handleSubmit = async e =>{
         e.preventDefault()
@@ -23,8 +25,8 @@ export default function TeacherRegister(){
                 setMsg(err.response.data.msg)
             }
         }
+        navigate('/dashboard')
     }
-    <Navigate to='/search' />
     return(
         <section>
             <p>{msg}</p>

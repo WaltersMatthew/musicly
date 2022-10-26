@@ -2,15 +2,17 @@ import {
 	BrowserRouter as Router,
 	Routes,
 	Route
-} from "react-router-dom";
-import "./App.css";
-import Navbar from "./components/partials/Navbar";
-import Dashboard from "./components/pages/Dashboard"
+} from "react-router-dom"
+import "./App.css"
+import Navbar from "./components/partials/Navbar"
+import Dashboard from "./components/pages/Teacher/Dashboard"
 import Home from "./components/pages/Home"
-import Login from './components/pages/Login'
-import Register from './components/pages/Register'
+import StudentLogin from "./components/pages/Student/StudentLogin"
+import StudentRegister from "./components/pages/Student/StudentRegister"
 import Search from "./components/pages/Search"
-import Teacher from './components/pages/Teacher'
+import Teacher from "./components/pages/Teacher"
+import TeacherLogin from "./components/pages/Teacher/TeacherLogin"
+import TeacherRegister from "./components/pages/Teacher/TeacherRegister"
 
 function App() {
     return (
@@ -23,13 +25,23 @@ function App() {
 					/>
 
 					<Route 
-						path="/register" 
-						element={<Register />}
+						path="/student/register" 
+						element={<StudentRegister />}
 					/>
 
 					<Route 
-						path="/login" 
-						element={<Login />} 
+						path="/teacher/register" 
+						element={<TeacherRegister />}
+					/>
+
+					<Route 
+						path="/student/login" 
+						element={<StudentLogin />} 
+					/>
+
+					<Route 
+						path="/teacher/login" 
+						element={<TeacherLogin />} 
 					/>
 
 					<Route

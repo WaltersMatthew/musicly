@@ -33,7 +33,7 @@ export default function Home(){
                                     Sign up and find the an experienced teacher to help you to take your skills to the next level.  
                                 </p>
                                 <a
-                                    href="/login"
+                                    href="/student/register"
                                     className="
                                     inline-block
                                     py-2
@@ -81,7 +81,7 @@ export default function Home(){
                             </p>
 
                             <a
-                                href="/register"
+                                href="/teacher/register"
                                 className="
                                 inline-block
                                 py-2

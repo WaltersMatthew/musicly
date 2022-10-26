@@ -8,9 +8,9 @@ import "./App.css";
 import Navbar from "./components/partials/Navbar";
 import Dashboard from "./components/pages/Dashboard"
 import Home from "./components/pages/Home"
+import Login from './components/pages/Login'
 import Register from './components/pages/Register'
 import Search from "./components/pages/Search"
-import Login from './components/pages/Login'
 import Teacher from './components/pages/Teacher'
 
 function App() {

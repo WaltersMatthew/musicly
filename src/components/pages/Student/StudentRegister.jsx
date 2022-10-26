@@ -1,6 +1,34 @@
+import { useState } from 'react'
+import axios from 'axios'
+import { Navigate } from 'react-router-dom'
+
 export default function StudentRegister(){
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
+    const [msg, setMsg] = useState('')
+
+    const handleSubmit = async e =>{
+        e.preventDefault()
+        try{
+            const reqBody = {
+                name,
+                email,
+                password
+            }
+            await axios.post('http://localhost:8000/api/teachers/', reqBody)
+        }catch(err){
+            console.log(err)
+            if (err.response){
+                setMsg(err.response.data.msg)
+            }
+        }
+    }
+
     return(
         <section>
+            <p>{msg}</p>
             <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 md:px-12 lg:px-24 lg:py-24">
                 <div className="justify-center mx-auto text-left align-bottom transition-all transform bg-white rounded-lg sm:align-middle sm:max-w-2xl sm:w-full">
                     <div className="grid flex-wrap items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl">
@@ -17,42 +45,53 @@ export default function StudentRegister(){
                                 </div>
                             </div>
                             {/* FORM STARTS HERE */}
-                            <form className="mt-6 space-y-2">
+                            <form onSubmit={handleSubmit} className="mt-6 space-y-2">
                                 <div>
-                                    <label for="fullname" className="sr-only">Full Name</label>
+                                    <label htmlFor="name" className="sr-only">Full Name</label>
                                     <input 
                                         type="text" 
-                                        name="fullname" 
-                                        id="fullname" 
+                                        name="name" 
+                                        id="name" 
                                         className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
-                                        placeholder="Enter your full name" />
+                                        placeholder="Enter your full name" 
+                                        onChange={e => setName(e.target.value)}
+                                        value={name}
+                                    />
                                 </div>
                                 <div>
-                                    <label for="username" className="sr-only">Username</label>
+                                    <label htmlFor="username" className="sr-only">Username</label>
                                     <input 
                                     type="text" 
                                     name="username" 
                                     id="username" 
                                     className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
-                                    placeholder="Create a username" />
+                                    placeholder="Create a username"
+                                    onChange={e => setUsername(e.target.value)}
+                                    value={username}
+                                />
                                 </div>
                                 <div>
-                                    <label for="email" className="sr-only">Email</label>
+                                    <label htmlFor="email" className="sr-only">Email</label>
                                     <input 
                                         type="text" 
                                         name="email" 
                                         id="email" 
                                         className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
-                                        placeholder="Enter your email" />
+                                        placeholder="Enter your email"
+                                        onChange={e => setEmail(e.target.value)}
+                                        value={email}
+                                    />
                                 </div>
                                 <div>
-                                    <label for="password" className="sr-only">Password</label>
+                                    <label htmlFor="password" className="sr-only">Password</label>
                                     <input 
                                         type="password" 
                                         name="password" 
                                         id="password" 
                                         className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
                                         placeholder="Create your password" 
+                                        onChange={e => setPassword(e.target.value)}
+                                        value={password}
                                     />
                                 </div>
                                 {/* SUBMIT BUTTON */}

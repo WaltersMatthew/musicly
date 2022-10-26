@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Navigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function StudentRegister(){
     const [name, setName] = useState('')
@@ -8,6 +8,8 @@ export default function StudentRegister(){
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
+
+    const navigate = useNavigate()
 
     const handleSubmit = async e =>{
         e.preventDefault()
@@ -17,13 +19,14 @@ export default function StudentRegister(){
                 email,
                 password
             }
-            await axios.post('http://localhost:8000/api/teachers/', reqBody)
+            await axios.post('http://localhost:8000/api/students/', reqBody)
         }catch(err){
             console.log(err)
             if (err.response){
                 setMsg(err.response.data.msg)
             }
         }
+        navigate('/search')
     }
 
     return(

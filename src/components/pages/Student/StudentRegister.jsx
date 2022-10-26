@@ -12,7 +12,7 @@ export default function StudentRegister(){
                                     </div>
 
                                     <div className="mt-4 text-base text-gray-500">
-                                        <p>Find the right teacher for your skills</p>
+                                        <p>Find your perfect teacher</p>
                                     </div>
                                 </div>
                             </div>
@@ -34,7 +34,7 @@ export default function StudentRegister(){
                                     name="username" 
                                     id="username" 
                                     className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
-                                    placeholder="Enter your username" />
+                                    placeholder="Create a username" />
                                 </div>
                                 <div>
                                     <label for="email" className="sr-only">Email</label>
@@ -48,11 +48,11 @@ export default function StudentRegister(){
                                 <div>
                                     <label for="password" className="sr-only">Password</label>
                                     <input 
-                                        type="text" 
+                                        type="password" 
                                         name="password" 
                                         id="password" 
                                         className="block w-full px-5 py-3 text-base text-neutral-600 placeholder-gray-300 transition duration-500 ease-in-out transform border border-transparent rounded-lg bg-gray-50 focus:outline-none focus:border-transparent focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-300" 
-                                        placeholder="Enter your password" 
+                                        placeholder="Create your password" 
                                     />
                                 </div>
                                 {/* SUBMIT BUTTON */}
@@ -63,6 +63,21 @@ export default function StudentRegister(){
                                     >
                                         Sign up
                                     </button>
+                                    
+                                    <p className="text-sm text-gray-500">
+                                        Already signed up? 
+
+                                        <a className="text-blue-500 underline" href='/login'>
+                                             Log in
+                                        </a>
+                                    </p>
+                                    <p className="text-sm text-gray-500">
+                                        Not a student?  
+                                        
+                                        <a className="text-blue-500 underline" href='/student/register'>
+                                             Register as a teacher
+                                        </a>
+                                    </p>
                                 </div>
                             </form>
                         </div>
@@ -71,7 +86,7 @@ export default function StudentRegister(){
                             <img 
                                 className="object-cover h-full bg-cover rounded-l-lg" 
                                 src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1000&amp;q=80" 
-                                alt="" 
+                                alt="music student" 
                             />
                         </div>
                     </div>

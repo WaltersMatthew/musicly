@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function Navbar(){
     return(
-        <nav>
+        <nav className='bg-white'>
             <ul className='flex justify-between'>
                 <li className='m-3'>
                     <Link 

@@ -12,6 +12,7 @@ import StudentRegister from "./components/pages/Student/StudentRegister"
 import Search from "./components/pages/Search"
 import Teacher from "./components/pages/Teacher"
 import TeacherRegister from "./components/pages/Teacher/TeacherRegister"
+import Inquiry from "./components/pages/Student/Inquiry"
 
 function App() {
     return (
@@ -51,6 +52,11 @@ function App() {
 					<Route
 						path="/teacher/:id"
 						element={<Teacher />}
+					/>
+
+					<Route
+						path='/teacher/:id/inquiry'
+						element={<Inquiry />}
 					/>
 				</Routes>
         </Router>

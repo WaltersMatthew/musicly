@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 export default function Inquiry(){
     const [name, setName] = useState('')

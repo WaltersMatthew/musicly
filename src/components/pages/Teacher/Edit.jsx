@@ -7,6 +7,7 @@ export default function Edit(){
     const [teacher, setTeacher] = useState()
     
     const { id } = useParams()
+    const currentUserId = localStorage.getItem('id')
     
     useEffect(() =>{
         const getTeacher = async () => {
@@ -19,6 +20,8 @@ export default function Edit(){
         }
         getTeacher()
     },[])
+
+    if (id === currentUserId) {
 
     return(
         <form className="w-full max-w-lg mx-auto mt-8 border-2 p-4 rounded-xl drop-shadow-xl bg-white">
@@ -83,4 +86,14 @@ export default function Edit(){
             </div>
         </form>
     )
+
+} else {
+    return(
+     <div>
+         <p>
+         You do not have access to this page. Please return to the <a href='/'>home page.</a>
+         </p>
+     </div>
+    ) 
+}
 }

@@ -14,6 +14,8 @@ export default function Inquiry(){
     
     const { id } = useParams()
     const navigate = useNavigate()
+    const currentUserId = localStorage.getItem('id')
+    
     
     const handleSubmit = async e => {
         e.preventDefault()
@@ -25,7 +27,7 @@ export default function Inquiry(){
                 availability,
                 phone_number: phone,
                 email,
-                inquirer_id: 1,
+                inquirer: currentUserId,
                 preferred_teacher: id
             }
             console.log(reqBody)

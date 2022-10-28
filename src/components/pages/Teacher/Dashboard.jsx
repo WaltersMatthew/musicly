@@ -7,6 +7,10 @@ export default function Dashboard(){
     const [inquiries, setInquiries] = useState([])
     const { id } = useParams()
     const navigate = useNavigate()
+
+    const currentUserId = localStorage.getItem('id')
+
+
     // let inquiries = []
     useEffect(()=>{
         const getInquiries = async () =>{
@@ -43,6 +47,8 @@ export default function Dashboard(){
             console.log(err.response.data)
         }
     }
+
+    if (id === currentUserId) {
 
     const unreadMap = inquiries.map(inquiry =>{
         if (inquiry.preferred_teacher == id && inquiry.viewed == false){
@@ -169,4 +175,13 @@ export default function Dashboard(){
         </div>
 
     )
+    } else {
+           return(
+            <div>
+                <p>
+                You do not have access to this page. Please return to the <a href='/'>home page.</a>
+                </p>
+            </div>
+           ) 
+    }
 }

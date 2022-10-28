@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom'
 
-
-
 export default function Navbar(){
     
-    
+    const logOut = () =>{
+        localStorage.removeItem('id')
+
+    }
+
     const loggedOut =(
         <Link
             className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'
@@ -20,7 +22,7 @@ export default function Navbar(){
             to='/'
             
         >
-            <span onClick={console.log(localStorage.removeItem ('id'))}>Log out</span>
+            <span onClick={logOut}>Log out</span>
         </Link>
     )   
     return(

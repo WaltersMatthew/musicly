@@ -1,6 +1,24 @@
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 export default function Edit(){
 
+    const [teacher, setTeacher] = useState()
     
+    const { id } = useParams()
+    
+    useEffect(() =>{
+        const getTeacher = async () => {
+            try {
+                const response = await axios.get(`/api/teachers/${id}`)
+                setTeacher(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getTeacher()
+    },[])
 
     return(
         <form className="w-full max-w-lg mx-auto mt-8 border-2 p-4 rounded-xl drop-shadow-xl bg-white">

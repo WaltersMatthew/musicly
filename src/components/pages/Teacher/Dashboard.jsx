@@ -22,7 +22,10 @@ export default function Dashboard(){
 //working out this function to post to the api on checkbox click
         const updateViewed = async () => {
             try {
-                await axios.post(`api/inquiries/`)
+                const reqBody = {
+                    viewed: checked
+                }
+                await axios.put(`api/inquiries/`, reqBody)
             } catch (error) {
                 console.log(error)
             }
@@ -30,9 +33,12 @@ export default function Dashboard(){
     },[])
     // console.log(inquiries)
     
-    const checkedBox = e => {
-        setChecked(true)
-        console.log(e)
+    const checkedBox = () => {
+        setChecked(!checked)
+        const reqBody = {
+            viewed: checked
+        }
+        axios.post('/api/inquiries', reqBody)
     }
 
     const unreadMap = inquiries.map(inquiry =>{

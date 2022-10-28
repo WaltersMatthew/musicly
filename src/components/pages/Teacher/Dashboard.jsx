@@ -1,4 +1,36 @@
+import axios from "axios"
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom"
+
+
 export default function Dashboard(){
+    const [studentName, setStudentName] = useState('')
+    
+    const { id } = useParams()
+    const navigate = useNavigate()
+
+    useEffect(()=>{
+        const getInquiries = async () =>{
+            try{
+                const response = await axios.get(`/api/inquiries/`)
+                console.log(response.data)
+            }catch(err){
+                console.log(err)
+            }
+        }
+        getInquiries()
+    },[])
+
+    const inquiryMap = response.data.map(inquiry =>{
+        return(
+            <div>
+
+            </div>
+        )
+
+    }
+    )
+
     return(  
         <div>
             <div className="m-5">

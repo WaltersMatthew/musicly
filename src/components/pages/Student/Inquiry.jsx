@@ -1,4 +1,5 @@
 import axios from "axios"
+import { useEffect } from "react"
 import { useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 
@@ -13,8 +14,7 @@ export default function Inquiry(){
     
     const { id } = useParams()
     const navigate = useNavigate()
-    // setPreferredTeacher(id)
-
+    
     const handleSubmit = async e => {
         e.preventDefault()
         try{

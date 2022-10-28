@@ -12,13 +12,16 @@ export default function TeacherRegister(){
 
     const handleSubmit = async e =>{
         e.preventDefault()
+        const is_teacher = true
         try{
             const reqBody = {
                 username: name,
                 email,
-                password
+                password,
+                is_teacher
             }
             await axios.post('http://localhost:8000/api/users/', reqBody)
+            // console.log(reqBody)
         }catch(err){
             console.log(err)
             if (err.response){

@@ -13,6 +13,7 @@ import Search from "./components/pages/Search"
 import Teacher from "./components/pages/Teacher"
 import TeacherRegister from "./components/pages/Teacher/TeacherRegister"
 import Inquiry from "./components/pages/Student/Inquiry"
+import Edit from "./components/pages/Teacher/Edit"
 
 function App() {
     return (
@@ -57,6 +58,11 @@ function App() {
 					<Route
 						path='/teacher/:id/inquiry'
 						element={<Inquiry />}
+					/>
+
+					<Route
+						path='/teacher/:id/edit'
+						element={<Edit />}
 					/>
 				</Routes>
         </Router>

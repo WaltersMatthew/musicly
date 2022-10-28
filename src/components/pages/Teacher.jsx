@@ -4,14 +4,23 @@ import { useParams } from 'react-router-dom'
 
 export default function Teacher(){
     const [teacher, setTeacher] = useState()
+    const [email, setEmail] = useState()
+    const [image, setImage] = useState()
+    const [tagline, setTagline] = useState()
+    const [bio, setBio] = useState()
+    const [yearsExperience, setYearsExperience] = useState()
+    const [acceptingStudents, setAccceptingStudents] = useState()
+    const [instruments, setInstruments] = useState()
+    const [location, setLocation] = useState()
     
     const { id } = useParams()
     
     useEffect(() =>{
         const getTeacher = async () => {
             try {
-                const response = await axios.get(`/api/teachers/${id}`)
+                const response = await axios.get(`/api/users/`)
                 setTeacher(response.data)
+                console.log(response.data)
             } catch (error) {
                 console.log(error)
             }

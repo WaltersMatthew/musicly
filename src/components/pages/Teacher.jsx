@@ -18,7 +18,7 @@ export default function Teacher(){
     useEffect(() =>{
         const getTeacher = async () => {
             try {
-                const response = await axios.get(`/api/users/`)
+                const response = await axios.get(`/api/users/${id}/`)
                 setTeacher(response.data)
                 console.log(response.data)
             } catch (error) {
@@ -36,20 +36,20 @@ export default function Teacher(){
                         <div className="flex flex-wrap justify-center">
                             <div className="w-full px-4 flex justify-center">
                                 <div className='flex justify-center'>
-                                    <img alt="Teacher" src="http://www.placecorgi.com/200/200" className="shadow-xl rounded-full h-auto align-middle -mt-6 border-none  max-w-150-px" />
+                                    <img alt="Teacher" src={teacher.image} className="shadow-xl rounded-full h-auto align-middle -mt-6 border-none  max-w-150-px" />
                                 </div>
                             </div>
                             <div className="w-full px-4 text-center mt-0">
                                 <div className="flex justify-center py-4 lg:pt-4 pt-8">
                                     <div className="mr-4 p-3 text-center">
                                         <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                            {22}
+                                            {teacher.years_experience}
                                         </span>
                                         <span className="text-sm text-blueGray-400">Years experience</span>
                                     </div>
                                     <div className="mr-4 p-3 text-center">
                                         <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                            {3}/5
+                                            {teacher.average_rating}/5
                                         </span>
                                         <span className="text-sm text-blueGray-400">
                                             Average rating
@@ -57,7 +57,7 @@ export default function Teacher(){
                                     </div>
                                     <div className="lg:mr-4 p-3 text-center">
                                         <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                            ✅/🚫
+                                            {teacher.accepting_students ? `✅` :`🚫`}
                                         </span>
                                         <span className="text-sm text-blueGray-400">
                                             Accepting students

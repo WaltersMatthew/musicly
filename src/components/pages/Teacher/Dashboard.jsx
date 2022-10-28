@@ -5,7 +5,6 @@ import { useNavigate, useParams } from "react-router-dom"
 
 export default function Dashboard(){
     const [inquiries, setInquiries] = useState([])
-    const [checked, setChecked] = useState(false)
     const { id } = useParams()
     const navigate = useNavigate()
     // let inquiries = []
@@ -23,7 +22,7 @@ export default function Dashboard(){
         const updateViewed = async () => {
             try {
                 const reqBody = {
-                    viewed: checked
+                    viewed: true
                 }
                 await axios.put(`api/inquiries/`, reqBody)
             } catch (error) {
@@ -33,12 +32,16 @@ export default function Dashboard(){
     },[])
     // console.log(inquiries)
     
-    const checkedBox = () => {
-        setChecked(!checked)
-        const reqBody = {
-            viewed: checked
+    const checkedBox =  async (id) => {
+        try{
+            const reqBody = {
+                viewed: true,
+            }
+            console.log( 'does this do anything?')
+            await axios.put(`/api/inquiries/${id}/`, reqBody)
+        }catch(err){
+            console.log(err.response.data)
         }
-        axios.post('/api/inquiries', reqBody)
     }
 
     const unreadMap = inquiries.map(inquiry =>{
@@ -85,7 +88,7 @@ export default function Dashboard(){
                         
                         <input 
                             type="checkbox" 
-                            onChange={e => checkedBox()}
+                            onChange={() => checkedBox(inquiry.id)}
                             className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                     </div>
                 </div>  

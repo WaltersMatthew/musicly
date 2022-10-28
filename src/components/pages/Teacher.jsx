@@ -86,6 +86,13 @@ export default function Teacher(){
                                 </div>
                             </div>
                         </div>
+                        <div>
+                            <a href={`/teacher/${id}/edit`}>
+                                <button  className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
+                                        Edit my profile
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,7 @@ export default function Search(){
     useEffect(() =>{
         const getTeachers = async () =>{
             try {
-                const response = await axios.get('/api/teachers')
+                const response = await axios.get('/api/users')
                 setTeachers(response.data)
             } catch (error) {
                 console.log(error)
@@ -20,7 +20,8 @@ export default function Search(){
     
     const getData = async e => {
         try {
-            const response = await axios.get('/api/teachers')
+            const response = await axios.get('/api/users')
+            console.log(response.data)
             setTeachers(response.data)
         } catch (error) {
             console.log(error)
@@ -28,27 +29,35 @@ export default function Search(){
     }
 
     const teacherMap = teachers.map(teacher => {
+        if (teacher.is_teacher === true)
         return(
             <div key={teacher.id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <section className="overflow-hidden rounded-lg shadow-lg">
 
                     <a href={`/teacher/${teacher.id}`}>
-                        <img alt="Placeholder" className="block h-auto w-full" src="http://www.placecorgi.com/600/400/" />
+                        <img alt="Your teacher" className="max-h-60 max-w-sm block h-auto w-full" src={teacher.image}/>
                     </a>
 
                     <header className="flex items-center justify-between leading-tight p-2 md:p-4">
-                        <h1 className="text-lg">
+                        <h1 className="text-lg ml-2">
                             <a className="no-underline hover:underline text-black" href={`/teacher/${teacher.id}`}>
                                 {teacher.name}
                             </a>
                         </h1>
                     </header>
 
-                    <footer className="flex items-center justify-between leading-none p-2 md:p-4">
-                        <a className="flex items-center no-underline hover:underline text-black" href={`/teacher/${teacher.id}`}>
-                            <p className="ml-2 text-sm">
+                    <footer className="items-center justify-between leading-none p-2">
+                        <a className="items-center no-underline hover:underline text-black" href={`/teacher/${teacher.id}`}>
+                            <p className='ml-2'>
                                 {teacher.bio}
                             </p>
+                            <br/>
+                            <p className="ml-2 mb-2 text-sm">
+                                Years Experience: {teacher.years_experience}
+                            </p>
+                            <p className='ml-2 mb-2 text-sm'>Average Rating: {teacher.average_rating}</p>
+                            <p className='ml-2 mb-2 text-sm'>Location: {teacher.location}</p>
+                            <p className='ml-2 mb-2 text-sm'>Accepting new students? {teacher.accepting_students ? '✅' : '🚫'}</p>
                         </a>
                     </footer>
                 </section>

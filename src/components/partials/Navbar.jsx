@@ -1,6 +1,28 @@
 import { Link } from 'react-router-dom'
 
+
+
 export default function Navbar(){
+    
+    
+    const loggedOut =(
+        <Link
+            className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'
+            to='/login'
+        >
+            Log in
+        </Link>
+    )
+
+    const loggedIn = (
+        <Link
+            className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'
+            to='/'
+            
+        >
+            <span onClick={console.log(localStorage.removeItem ('id'))}>Log out</span>
+        </Link>
+    )   
     return(
         <nav className='bg-white'>
             <ul className='flex justify-between'>
@@ -29,12 +51,7 @@ export default function Navbar(){
                 </li>
 
                 <li className='m-3'>
-                    <Link
-                        className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'
-                        to='/login'
-                    >
-                        Log in
-                    </Link>
+                    {localStorage.id ? loggedIn : loggedOut}
                 </li>
             </ul>
         </nav>

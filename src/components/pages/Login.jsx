@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 export default function Login(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
+    const [msg, setMsg] = useState('')
     const navigate = useNavigate()
     const handleSubmit = async e => {
         e.preventDefault()
@@ -18,7 +18,10 @@ export default function Login(){
             for(let i = 0; i < response.data.length; i++){
                 if (email == response.data[i].email){
                     window.localStorage.setItem('id', response.data[i].id)
-                    navigate(`/teacher/${response.data[i].id}/dashboard`)
+                    navigate(`/search`)
+                }
+                else{
+                    setMsg('Your username or password are incorrect, please try again')
                 }
             }
         }catch(err){
@@ -32,6 +35,7 @@ export default function Login(){
             <div className="flex flex-col justify-center min- py-12 sm:px-6 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-md">
                     <h2 className="mt-6 text-3xl font-extrabold text-center text-neutral-600">Sign in to your account</h2>
+                    <p>{msg}</p>
                 </div>
 
                 <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

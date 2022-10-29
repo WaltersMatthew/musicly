@@ -11,6 +11,7 @@ export default function Review(){
     const { id } = useParams()
     const navigate = useNavigate()
     const currentUserId = localStorage.getItem('id')
+    let average_rating = null
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -22,17 +23,35 @@ export default function Review(){
                 author: currentUserId,
                 teacher: id
             }
-            console.log(reqBody)
+        
+            // console.log(reqBody)
             await axios.post('http://localhost:8000/api/reviews/', reqBody)
 
+            average_rating_cacl()
+            
         } catch(err) {
             console.log(err)
         }
         navigate(`/teacher/${id}`)
-
-
+        
+        
     }
-    
+    const average_rating_cacl = async e => {
+        // e.preventDefault()
+        try{
+            const reviewsResponse = await axios.get(`/api/reviews/`)
+            // const responseTeacher = await axios.get(`http://localhost:8000/api/users/${id}/`)
+            // average_rating = responseTeacher.data.average_rating
+        } catch(err) {
+            console.log(err)
+        }
+        
+    }
+    if (reviewsResponse) {
+        
+    }
+
+
 
     return(
         <form onSubmit={handleSubmit} className="mx-auto mt-10 border p-10 bg-white rounded-lg shadow-lg w-full max-w-lg">

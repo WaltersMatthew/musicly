@@ -4,14 +4,15 @@ import { Link, useParams } from 'react-router-dom'
 
 export default function Teacher(){
     const [teacher, setTeacher] = useState()
-    const [email, setEmail] = useState()
-    const [image, setImage] = useState()
-    const [tagline, setTagline] = useState()
-    const [bio, setBio] = useState()
-    const [yearsExperience, setYearsExperience] = useState()
-    const [acceptingStudents, setAccceptingStudents] = useState()
-    const [instruments, setInstruments] = useState()
-    const [location, setLocation] = useState()
+    const [reviews, setReviews] = useState()
+    // const [email, setEmail] = useState()
+    // const [image, setImage] = useState()
+    // const [tagline, setTagline] = useState()
+    // const [bio, setBio] = useState()
+    // const [yearsExperience, setYearsExperience] = useState()
+    // const [acceptingStudents, setAccceptingStudents] = useState()
+    // const [instruments, setInstruments] = useState()
+    // const [location, setLocation] = useState()
     
     const { id } = useParams()
     const editButton = (
@@ -26,13 +27,75 @@ export default function Teacher(){
             try {
                 const response = await axios.get(`/api/users/${id}/`)
                 setTeacher(response.data)
-                console.log(response.data)
+                // console.log(response.data)
             } catch (error) {
                 console.log(error)
             }
         }
         getTeacher()
     },[])
+
+    useEffect(() =>{
+        const getReviews = async () => {
+            try {
+                const response = await axios.get(`/api/reviews/`)
+                setReviews(response.data)
+                console.log(response.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getReviews()
+    },[])
+
+
+// mapping of reviewsin process!!
+    const currentTeacherReviews = reviews.map(review => {
+        if (review.teacher == id) {
+            return(
+                <div>
+
+                <ul class="flex justify-center">
+                <li>
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" class="w-4 text-yellow-500 mr-1" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
+                  </svg>
+                </li>
+                <li>
+                  <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="star" class="w-4 text-yellow-500" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                    <path fill="currentColor" d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"></path>
+                  </svg>
+                </li>
+              </ul>
+              <div>
+                <h1>
+                    {review.title}
+                </h1>
+                <p>
+                    {review.content}
+                </p>
+              </div>
+                </div>
+
+
+            )
+        }
+    })
 
 
     return(
@@ -82,6 +145,13 @@ export default function Teacher(){
                                         </button>
                                     </a>
                                 </div>
+                                <div>
+                                    <a href={`/teacher/${id}/review`}>
+                                        <button  className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
+                                            Leave a review
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="text-center mt-10">
@@ -116,6 +186,7 @@ export default function Teacher(){
                     </div>
                 </div>
             </div>
+            {currentTeacherReviews}
         </section>
 
     )

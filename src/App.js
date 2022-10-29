@@ -15,6 +15,7 @@ import Teacher from "./components/pages/Teacher"
 import TeacherRegister from "./components/pages/Teacher/TeacherRegister"
 import Inquiry from "./components/pages/Student/Inquiry"
 import Edit from "./components/pages/Teacher/Edit"
+import Review from "./components/pages/Student/Review";
 
 function App() {
 
@@ -75,6 +76,11 @@ function App() {
 					<Route
 						path='/teacher/:id/inquiry'
 						element={<Inquiry />}
+					/>
+
+					<Route
+						path='/teacher/:id/review'
+						element={<Review />}
 					/>
 
 					<Route

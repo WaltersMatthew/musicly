@@ -3,7 +3,7 @@ export default function Home(){
         <section className="pt-10 bg-[#F3F4F6]">
             <div className="container mx-auto">
                 <div className="flex flex-wrap mx-auto">
-                    <div className="w-full md:w-1/2 xl:w-1/3 px-4 mx-auto">
+                    <div className="w-full md:w-1/2 xl:w-1/2 px-4 mx-auto">
                         <div className="bg-white shadow-xl rounded-lg overflow-hidden mb-10">
                             <img
                                 src="/student.png"
@@ -51,7 +51,7 @@ export default function Home(){
                             </div>
                         </div>
                     </div>
-                    <div className="w-full md:w-1/2 xl:w-1/3 px-4">
+                    <div className="w-full md:w-1/2 xl:w-1/2 px-4">
                         <div className="bg-white shadow-xl rounded-lg overflow-hidden mb-10">
                         <img
                             src="/teacher.jpg"

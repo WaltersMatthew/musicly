@@ -45,7 +45,7 @@ export default function Navbar(){
                         <img 
                             src='/favicon.ico' 
                             width='30px'
-                            className='mr-3'
+                            className='mr-3 md:max-w-10'
                             alt='8th note logo'
                             /> 
                         Musicly

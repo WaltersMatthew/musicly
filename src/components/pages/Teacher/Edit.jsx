@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 export default function Edit(){
 
@@ -8,7 +8,8 @@ export default function Edit(){
     
     const { id } = useParams()
     const currentUserId = localStorage.getItem('id')
-    
+    const navigate = useNavigate()
+
     useEffect(() =>{
         const getTeacher = async () => {
             try {
@@ -21,10 +22,21 @@ export default function Edit(){
         getTeacher()
     },[])
 
+    const handleSubmit = async () => {
+        try {
+            await axios.post(`/api/teachers/${id}`)
+        } catch (error) {
+            console.log(error)
+        }
+        navigate(`/teacher/${id}`)
+    }
+
     if (id === currentUserId) {
 
     return(
-        <form className="w-full max-w-lg mx-auto mt-8 border-2 p-4 rounded-xl drop-shadow-xl bg-white">
+        <form 
+            onSubmit={handleSubmit}
+            className="w-full max-w-lg mx-auto mt-8 border-2 p-4 rounded-xl drop-shadow-xl bg-white">
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                     <label 

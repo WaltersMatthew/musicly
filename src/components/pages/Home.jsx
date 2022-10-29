@@ -4,11 +4,11 @@ export default function Home(){
             <div className="container mx-auto">
                 <div className="flex flex-wrap mx-auto">
                     <div className="w-full md:w-1/2 xl:w-1/3 px-4 mx-auto">
-                        <div className="bg-white rounded-lg overflow-hidden mb-10">
+                        <div className="bg-white shadow-xl rounded-lg overflow-hidden mb-10">
                             <img
-                                src="https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-01.jpg"
+                                src="/student.png"
                                 alt="music student"
-                                className="w-full"
+                                className="w-full max-h-52"
                                 />
                             
                             <div className="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
@@ -52,11 +52,11 @@ export default function Home(){
                         </div>
                     </div>
                     <div className="w-full md:w-1/2 xl:w-1/3 px-4">
-                        <div className="bg-white rounded-lg overflow-hidden mb-10">
+                        <div className="bg-white shadow-xl rounded-lg overflow-hidden mb-10">
                         <img
-                            src="https://cdn.tailgrids.com/1.0/assets/images/cards/card-01/image-02.jpg"
+                            src="/teacher.jpg"
                             alt="teaching music"
-                            className="w-full"
+                            className="w-full max-h-52"
                             />
                         <div className="p-8 sm:p-9 md:p-7 xl:p-9 text-center">
                             <h3

@@ -47,9 +47,9 @@ export default function Review(){
         }
         
     }
-    if (reviewsResponse) {
+    // if (reviewsResponse) {
         
-    }
+    // }
 
 
 

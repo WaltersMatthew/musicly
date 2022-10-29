@@ -23,7 +23,7 @@ export default function Review(){
                 teacher: id
             }
             console.log(reqBody)
-            await axios.post('http://localhost:8000/api/reviews', reqBody)
+            await axios.post('http://localhost:8000/api/reviews/', reqBody)
 
         } catch(err) {
             console.log(err)
@@ -88,7 +88,35 @@ export default function Review(){
                 />
                 
             </div>
-            
+
+            {/* tried to do an drop down input below but couldn't figure it out */}
+            {/* <div class="flex justify-center">
+                <div class="mb-3 xl:w-96">
+                    <select class="form-select appearance-none
+                    block
+                    w-full
+                    px-3
+                    py-1.5
+                    text-base
+                    font-normal
+                    text-gray-700
+                    bg-white bg-clip-padding bg-no-repeat
+                    border border-solid border-gray-300
+                    rounded
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" aria-label="Default select example">
+                        <option selected>Select a rating</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
+             */}
             <button type='submit' className="inline-block border border-blue-500 rounded py-2 px-10 my-4
             -mb-10 bg-blue-500 hover:bg-blue-700 mx-auto text-white transition duration-150 ease-in-out">Submit</button>
         </div>

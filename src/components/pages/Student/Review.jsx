@@ -36,20 +36,6 @@ export default function Review(){
         
         
     }
-    const average_rating_cacl = async e => {
-        // e.preventDefault()
-        try{
-            const reviewsResponse = await axios.get(`/api/reviews/`)
-            // const responseTeacher = await axios.get(`http://localhost:8000/api/users/${id}/`)
-            // average_rating = responseTeacher.data.average_rating
-        } catch(err) {
-            console.log(err)
-        }
-        
-    }
-    // if (reviewsResponse) {
-        
-    // }
 
 
 

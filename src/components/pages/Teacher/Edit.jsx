@@ -5,6 +5,13 @@ import { useParams, useNavigate } from 'react-router-dom'
 export default function Edit(){
 
     const [teacher, setTeacher] = useState()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [image, setImage] = useState('')
+    const [bio, setBio] = useState('')
+    const [location, setLocation] = useState('')
+    const [accepting_students, setAccepting_students] = useState('')
+    const [years_experience, setYears_experience] = useState('')
     
     const { id } = useParams()
     const currentUserId = localStorage.getItem('id')
@@ -13,6 +20,7 @@ export default function Edit(){
     useEffect(() =>{
         const getTeacher = async () => {
             try {
+                
                 const response = await axios.get(`/api/teachers/${id}`)
                 setTeacher(response.data)
             } catch (error) {
@@ -22,9 +30,19 @@ export default function Edit(){
         getTeacher()
     },[])
 
-    const handleSubmit = async () => {
+    const handleSubmit = async e => {
+        e.preventDefault()
         try {
-            await axios.post(`/api/teachers/${id}`)
+            const reqBody = {
+                name,
+                email,
+                image,
+                bio,
+                location,
+                accepting_students,
+                years_experience
+            }
+            await axios.put(`/api/teachers/${id}/`, reqBody)
         } catch (error) {
             console.log(error)
         }
@@ -47,6 +65,8 @@ export default function Edit(){
                     </label>
                     
                     <input 
+                        onChange={e => setName(e.target.value)}
+                        value={name}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                         id="name" 
                         type="text" 
@@ -63,6 +83,8 @@ export default function Edit(){
                     </label>
                     
                     <input 
+                        onChange={e => setEmail(e.target.value)}
+                        value={email}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                         id="email" 
                         type="text" 
@@ -80,6 +102,8 @@ export default function Edit(){
                     </label>
                     
                     <input 
+                        onChange={e => setImage(e.target.value)}
+                        value={image}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                         id="image" 
                         type="text" 
@@ -96,9 +120,10 @@ export default function Edit(){
                     </label>
 
                     <textarea 
+                        onChange={e => setBio(e.target.value)}
+                        value={bio}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
-                        id="bio" 
-                        type="password" 
+                        id="bio"
                         placeholder="Education, experience, awards, etc."
                     >
                     </textarea>
@@ -115,6 +140,8 @@ export default function Edit(){
                     </label>
                     
                     <input 
+                        onChange={e => setLocation(e.target.value)}
+                        value={location}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                         id="location" 
                         type="text" 
@@ -129,6 +156,8 @@ export default function Edit(){
 
                     <div className="relative">
                         <select 
+                            onChange={e => setAccepting_students(e.target.value)}
+                            value={accepting_students}
                             className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
                             id="accepting_students"
                         >
@@ -154,6 +183,8 @@ export default function Edit(){
                     </label>
 
                     <input 
+                        onChange={e => setYears_experience(e.target.value)}
+                        value={years_experience}
                         className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"        
                         id="years_experience" 
                         type="number" 

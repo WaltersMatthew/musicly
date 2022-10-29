@@ -118,7 +118,7 @@ export default function TeacherRegister(){
                         <div className="order-first hidden w-full lg:block">
                             <img 
                                 className="object-cover h-full bg-cover rounded-l-lg" 
-                                src="/conductor.jpg" 
+                                src="https://cutewallpaper.org/24/conductor-pictures/181347423.jpg" 
                                 alt="Music teacher" 
                             />
                         </div>

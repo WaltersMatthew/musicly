@@ -129,7 +129,7 @@ export default function StudentRegister(){
                         <div className="order-first hidden w-full lg:block">
                             <img 
                                 className="min-h-max rounded-l-lg" 
-                                src="/drummer.jpg" 
+                                src="https://www.gannett-cdn.com/presto/2019/11/07/PJAM/72a3014a-9738-4da2-be9d-6444c630df63-IMG_0017.JPG?width=600&height=800&fit=crop&format=pjpg&auto=webp" 
                                 alt="music student" 
                             />
                         </div>

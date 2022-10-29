@@ -143,20 +143,7 @@ export default function Teacher(){
                                         </span>
                                     </div>
                                 </div>
-                                <div>
-                                    <a href={`/teacher/${id}/inquiry`}>
-                                        <button  className='inline-block border border-blue-500 rounded py-2 my-4 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
-                                            Lesson inquiry
-                                        </button>
-                                    </a>
-                                </div>
-                                <div>
-                                    <a href={`/teacher/${id}/review`}>
-                                        <button  className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
-                                            Leave a review
-                                        </button>
-                                    </a>
-                                </div>
+                                
                             </div>
                         </div>
                         <div className="text-center mt-10">
@@ -171,6 +158,20 @@ export default function Teacher(){
                                 <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
                                 Now teaching: fjkdlfd
                             </div>
+                            <div>
+                                    <a href={`/teacher/${id}/inquiry`}>
+                                        <button  className='inline-block border border-blue-500 rounded py-2 my-4 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
+                                            Lesson inquiry
+                                        </button>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href={`/teacher/${id}/review`}>
+                                        <button  className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
+                                            Leave a review
+                                        </button>
+                                    </a>
+                                </div>
                         </div>
                         <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
                             <div className="flex flex-wrap justify-center">

@@ -22,6 +22,16 @@ export default function StudentRegister(){
             }
             await axios.post('http://localhost:8000/api/users/', reqBody)
             // console.log(reqBody)
+
+            const studentResponse = await axios.get(`http://localhost:8000/api/users/`)
+            window.localStorage.setItem('isTeacher', 'student')
+            console.log(studentResponse.data)
+            await studentResponse.data.map(user => {
+                if (user.email === email) {
+                    window.localStorage.setItem('id', user.id)
+                    return
+                }
+            })
         }catch(err){
             console.log(err)
             if (err.response){

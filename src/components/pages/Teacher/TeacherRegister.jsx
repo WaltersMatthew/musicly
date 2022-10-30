@@ -7,6 +7,7 @@ export default function TeacherRegister(){
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
+    const [id, setId] = useState('')
 
     const navigate = useNavigate()
 
@@ -20,7 +21,16 @@ export default function TeacherRegister(){
                 password,
                 is_teacher
             }
-            await axios.post('http://localhost:8000/api/users/', reqBody)
+            await axios.post(`http://localhost:8000/api/users/`, reqBody)
+
+            const teacherResponse = await axios.get(`http://localhost:8000/api/users/`)
+            window.localStorage.setItem('isTeacher', 'teacher')
+            console.log(teacherResponse.data)
+            await teacherResponse.data.map(user => {
+                if (user.email === email) {
+                    window.localStorage.setItem('id', user.id)
+                }
+            })
             // console.log(reqBody)
         }catch(err){
             console.log(err)

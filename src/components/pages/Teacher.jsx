@@ -195,7 +195,7 @@ export default function Teacher(){
                             <div className="flex flex-wrap justify-center">
                                 <div className="w-full lg:w-9/12 px-4">
                                     <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                        {teacher ? teacher.bio: ''} 
+                                        {teacher ? teacher.tag_line: ''} 
                                     </p>
                                 </div>
                             </div>

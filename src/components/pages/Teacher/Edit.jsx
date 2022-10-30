@@ -9,6 +9,7 @@ export default function Edit(){
     const [email, setEmail] = useState('')
     const [image, setImage] = useState('')
     const [bio, setBio] = useState('')
+    const [tag_line, setTag_line] = useState('')
     const [location, setLocation] = useState('')
     const [accepting_students, setAccepting_students] = useState('')
     const [years_experience, setYears_experience] = useState('')
@@ -23,6 +24,15 @@ export default function Edit(){
                 
                 const response = await axios.get(`/api/users/${id}`)
                 setTeacher(response.data)
+                setName(response.data.name)
+                setEmail(response.data.email)
+                setImage(response.data.image)
+                setBio(response.data.bio)
+                setTag_line(response.data.tag_line)
+                setLocation(response.data.location)
+                setAccepting_students(response.data.accepting_students)
+                setYears_experience(response.data.years_experience)
+                console.log(teacher)
             } catch (error) {
                 console.log(error)
             }
@@ -30,18 +40,21 @@ export default function Edit(){
         getTeacher()
     },[])
 
+    console.log(teacher)
     const handleSubmit = async e => {
         e.preventDefault()
         try {
             const reqBody = {
                 name,
-                email,
-                image,
-                bio,
-                location,
-                accepting_students,
-                years_experience
+                username: 'AmmonOrg'
+                // email,
+                // image,
+                // bio,
+                // location,
+                // accepting_students,
+                // years_experience
             }
+            console.log(reqBody)
             await axios.put(`http://localhost:8000/api/users/${id}/`, reqBody)
         } catch (error) {
             console.log(error)

@@ -49,7 +49,7 @@ export default function Search(){
                     <footer className="items-center justify-between leading-none p-2">
                         <a className="items-center no-underline hover:underline text-black" href={`/teacher/${teacher.id}`}>
                             <p className='ml-2'>
-                                {teacher.bio}
+                                {teacher.tag_line}
                             </p>
                             <br/>
                             <p className="ml-2 mb-2 text-sm">

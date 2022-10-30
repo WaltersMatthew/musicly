@@ -31,10 +31,11 @@ export default function TeacherRegister(){
                 bio,
                 instruments_teach,
                 location,
-                accepting_students,
+                // accepting_students,
                 years_experience,
                 is_teacher
             }
+            console.log(reqBody)
             await axios.post(`http://localhost:8000/api/users/`, reqBody)
 
             const teacherResponse = await axios.get(`http://localhost:8000/api/users/`)

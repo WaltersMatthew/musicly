@@ -35,6 +35,7 @@ export default function TeacherRegister(){
                 years_experience,
                 is_teacher
             }
+            console.log(reqBody)
             await axios.post(`http://localhost:8000/api/users/`, reqBody)
 
             const teacherResponse = await axios.get(`http://localhost:8000/api/users/`)

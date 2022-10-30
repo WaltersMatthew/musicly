@@ -27,7 +27,7 @@ export default function Review(){
             // console.log(reqBody)
             await axios.post('http://localhost:8000/api/reviews/', reqBody)
 
-            // average_rating_cacl()
+            await axios.post(`http://localhost:8000/api/reviews/${id}/update_rating_fields/`, reqBody)
             
         } catch(err) {
             console.log(err)

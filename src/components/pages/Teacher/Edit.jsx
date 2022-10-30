@@ -21,7 +21,7 @@ export default function Edit(){
         const getTeacher = async () => {
             try {
                 
-                const response = await axios.get(`/api/teachers/${id}`)
+                const response = await axios.get(`/api/users/${id}`)
                 setTeacher(response.data)
             } catch (error) {
                 console.log(error)
@@ -42,7 +42,7 @@ export default function Edit(){
                 accepting_students,
                 years_experience
             }
-            await axios.put(`/api/teachers/${id}/`, reqBody)
+            await axios.put(`http://localhost:8000/api/users/${id}/`, reqBody)
         } catch (error) {
             console.log(error)
         }

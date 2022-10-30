@@ -7,6 +7,7 @@ export default function Login(){
     const [password, setPassword] = useState('')
     const [msg, setMsg] = useState('')
     const navigate = useNavigate()
+    
     const handleSubmit = async e => {
         e.preventDefault()
         try {
@@ -18,7 +19,14 @@ export default function Login(){
             for(let i = 0; i < response.data.length; i++){
                 if (email == response.data[i].email){
                     window.localStorage.setItem('id', response.data[i].id)
-                    navigate(`/search`)
+                    if(response.data[i].is_teacher == true){
+                        window.localStorage.setItem('isTeacher', 'teacher')
+                        navigate(`/teacher/${response.data[i].id}/dashboard`)
+                    }
+                    else{
+                        window.localStorage.setItem('isTeacher', 'student')
+                        navigate(`/search`)
+                    }
                 }
                 else{
                     setMsg('Your username or password are incorrect, please try again')

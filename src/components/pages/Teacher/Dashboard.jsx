@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link } from "react-router-dom"
 
 
 export default function Dashboard(){
@@ -158,7 +158,19 @@ export default function Dashboard(){
     return(  
         <div>
             <div className="m-5">
-                <h1 className="text-2xl flex justify-center mt-5 shadow-xl border-2"><span className="p-4">Uncontacted</span></h1>
+                <div>
+                    <Link to={`/teacher/${id}`}>
+                        <button className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'>
+                            My Profile
+                        </button>
+                    </Link>
+                </div>
+
+                <h1 className="text-2xl flex justify-center mt-5 shadow-xl border-2">
+                    <span className="p-4">
+                        Uncontacted
+                    </span>
+                </h1>
             </div>
             
             <div className="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-1 flex wrap justify-evenly m-10">

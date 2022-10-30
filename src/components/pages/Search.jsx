@@ -69,7 +69,7 @@ export default function Search(){
 
     return(
         <div>
-            <form className="w-full max-w-sm mx-auto mt-20">
+            {/* <form className="w-full max-w-sm mx-auto mt-20">
                 <div className="flex items-center border-b border-teal-500 py-2">
                     <label htmlFor="search"></label>
                     <input 
@@ -89,7 +89,7 @@ export default function Search(){
                         Search
                     </button>
                 </div>
-            </form>
+            </form> */}
 
             <div className="container my-12 mx-auto px-4 md:px-12">
                 <div className="flex flex-wrap -mx-1 lg:-mx-4">

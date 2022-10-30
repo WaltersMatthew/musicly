@@ -52,6 +52,10 @@ export default function Teacher(){
     //     setInstruments(teacher.instruments)
     // }
 
+    const teacherId = localStorage.getItem('id')
+
+
+
 // mapping of reviewsin process!!
     if (reviews) {
         currentTeacherReviews = reviews.map(review => {
@@ -183,16 +187,19 @@ export default function Teacher(){
                             </div>
                         </div>
                         <div className='mx-auto'>
-                            <a href={`/teacher/${id}/edit`}>
-                                <button  className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 mb-6  text-white transition duration-150 ease-in-out'>
+                            <a href={`/teacher/${id}/edit`} className={teacherId === id ? 'inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 mb-6  text-white transition duration-150 ease-in-out' : 'hidden'}>
                                         Edit my profile
-                                </button>
                             </a>
+                        </div>
+                        <div>
+                            <div className='flex justify-center mb-4 border-b'>
+                                <h1 className='text-2xl'>Reviews</h1>
+                            </div>
+                            {currentTeacherReviews ? currentTeacherReviews : '' }
                         </div>
                     </div>
                 </div>
             </div>
-            {currentTeacherReviews ? currentTeacherReviews : '' }
         </section>
 
     )

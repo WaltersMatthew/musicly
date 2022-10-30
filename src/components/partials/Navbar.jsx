@@ -6,6 +6,8 @@ export default function Navbar(){
 
     const logOut = () =>{
         localStorage.removeItem('id')
+        localStorage.removeItem('isTeacher')
+
 
     }
 

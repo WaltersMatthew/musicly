@@ -8,13 +8,12 @@ Musicly is a fullstack app connecting students to music teachers. Aspiring stude
 * PostgreSQL
 * Django
 * React
-* Next.js
 * Axios
 * Tailwind CSS
 * Python
 * Javascript
 
-Find the server repo [here](https://github.com/Shazammon/musicly_server)
+[Find the client repo here](https://github.com/waltersmatthew/musicly)
 
 # The team
 
@@ -41,6 +40,39 @@ Students can begin their search by selecting their instrument of choice from a d
 Teachers can begin by selecting the "Signup" button which takes them to a form to input their name, username, and a password. After signing up, teachers are taken to another form where they can begin filling out their profile information (including all detail fields listed in above paragraph.) After submitting the form, teachers are taken to their Teacher Dashboard. Once they receive an inquiry, the inquiry card will be displayed. Teachers can sort their inquiries by "Viewed" or "New". Each inquiry card will have a button to mark the inquiry as "Viewed."
 
 ---
+
+# Installation instructions
+
+## Client installation
+
+To run Musicly on your local machine, first fork and clone this repository. Then follow these steps:
+
+* In your terminal, navigate to the cloned repository. Run the command ```npm -install```  or  ```npm i```
+to install all of the packages needed to run the app.
+ 
+
+* You're all set! run the command ```npm run start``` in your cloned repository and your client is ready to go.
+* Make sure your server is running in order to create accounts and browse the website
+* Enjoy!
+
+## Server installation
+
+* First set up a virtual environment in which to run the project
+```
+python3 -m venv .env
+```
+* Next, activate your virtual environment
+```
+source .env/bin/activate
+```
+* Once you are operating inside your virtual environment, you can run the command ```pip3 install -r requirements.txt``` to download the required dependencies for the server.
+* Now you will need to create a sql database in order to use the project locally. 
+    * In another terminal, run the command ```psql``` to enter the postgres shell
+    * Then, to create the database, run ```CREATE DATABASE musiclydatabase```
+* Once your database has been created, return to your project, and we will need to run migrations with the command ```python3 manage.py migrate```
+* After that, your project should be ready to run!
+* ```python3 manage.py runserver``` to get your server running
+* Congratulations! If you navigate to ```localhost:8000``` you should see your django project running!
 # Wireframes
 
 <img width=500px src='./public/Wireframes.png' />

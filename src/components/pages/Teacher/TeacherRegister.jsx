@@ -6,6 +6,7 @@ export default function TeacherRegister(){
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [username, setUsername] = useState('')
     const [image, setImage] = useState('')
     const [bio, setBio] = useState('')
     const [instruments_teach, setInstruments_teach] = useState('')
@@ -22,9 +23,16 @@ export default function TeacherRegister(){
         const is_teacher = true
         try{
             const reqBody = {
-                username: name,
+                name,
                 email,
                 password,
+                username,
+                image,
+                bio,
+                instruments_teach,
+                location,
+                accepting_students,
+                years_experience,
                 is_teacher
             }
             await axios.post(`http://localhost:8000/api/users/`, reqBody)
@@ -90,23 +98,43 @@ export default function TeacherRegister(){
                 </div>
             </div>
             <div className="flex flex-wrap -mx-3 mb-2">
-                <div className="w-full px-3">
+                <div className="w-full md:w-1/2 px-3 mb-2 md:mb-0">
                     <label 
                         className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
                         htmlFor="password"
                     >
-                        Password
+                        password
                     </label>
                     
                     <input 
                         onChange={e => setPassword(e.target.value)}
                         value={password}
-                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" 
                         id="password" 
                         type="password" 
-                        placeholder="*******"/>
+                        placeholder="******"
+                    />
+                </div>
+
+                <div className="w-full md:w-1/2 px-3">
+                    <label 
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                        htmlFor="username"
+                    >
+                        Username
+                    </label>
+                    
+                    <input 
+                        onChange={e => setUsername(e.target.value)}
+                        value={username}
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                        id="username" 
+                        type="text" 
+                        placeholder="MisterMaestro"
+                    />
                 </div>
             </div>
+            
             <div className="flex flex-wrap -mx-3 mb-2">
                 <div className="w-full px-3">
                     <label 

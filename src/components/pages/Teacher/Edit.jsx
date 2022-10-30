@@ -7,6 +7,7 @@ export default function Edit(){
     const [teacher, setTeacher] = useState()
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
     const [image, setImage] = useState('')
     const [bio, setBio] = useState('')
     const [tag_line, setTag_line] = useState('')
@@ -26,6 +27,7 @@ export default function Edit(){
                 setTeacher(response.data)
                 setName(response.data.name)
                 setEmail(response.data.email)
+                setUsername(response.data.username)
                 setImage(response.data.image)
                 setBio(response.data.bio)
                 setTag_line(response.data.tag_line)
@@ -46,16 +48,17 @@ export default function Edit(){
         try {
             const reqBody = {
                 name,
-                username: 'AmmonOrg'
-                // email,
-                // image,
-                // bio,
-                // location,
-                // accepting_students,
-                // years_experience
+                username,
+                email,
+                image,
+                bio,
+                location,
+                accepting_students,
+                years_experience
             }
             console.log(reqBody)
-            await axios.put(`http://localhost:8000/api/users/${id}/`, reqBody)
+            console.log(id)
+            await axios.patch(`http://localhost:8000/api/users/${id}/`, reqBody)
         } catch (error) {
             console.log(error)
         }
@@ -123,6 +126,27 @@ export default function Edit(){
                         placeholder="www.imgur.com/myprettypicture"/>
                 </div>
             </div>
+
+            <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
+                    <label 
+                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" 
+                        htmlFor="bio"
+                    >
+                        Tagline
+                    </label>
+
+                    <input 
+                        onChange={e => setTag_line(e.target.value)}
+                        value={tag_line}
+                        className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                        id="tag_line"
+                        placeholder="I am a passionate violin teacher!"
+                    />
+                    
+                </div>
+            </div>
+
             <div className="flex flex-wrap -mx-3 mb-6">
                 <div className="w-full px-3">
                     <label 

@@ -15,7 +15,7 @@ export default function Login(){
                 email,
                 password
             }
-            const response = await axios.get('/api/users', reqBody)
+            const response = await axios.get('http://localhost:8000/api/users', reqBody)
             for(let i = 0; i < response.data.length; i++){
                 if (email == response.data[i].email){
                     window.localStorage.setItem('id', response.data[i].id)
@@ -33,7 +33,7 @@ export default function Login(){
                 }
             }
         }catch(err){
-            console.log(err.data)
+            console.log(err.message)
         }
 
     }

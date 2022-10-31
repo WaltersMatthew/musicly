@@ -39,6 +39,7 @@ export default function StudentRegister(){
             }
         }
         navigate('/search')
+        window.location.reload()
     }
 
     return(

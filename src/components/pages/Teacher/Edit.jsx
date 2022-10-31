@@ -52,6 +52,7 @@ export default function Edit(){
                 email,
                 image,
                 bio,
+                tag_line,
                 location,
                 accepting_students,
                 years_experience

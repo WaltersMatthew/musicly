@@ -54,6 +54,7 @@ export default function TeacherRegister(){
             }
         }
         navigate('/search')
+        window.location.reload()
     }
     return(
         

@@ -77,7 +77,7 @@ export default function Teacher(){
                 return(
                     <div 
                         key={`review${review.id}`}
-                        className='border-2 m-2 p-2 rounded-xl bg-white'
+                        className='border m-2 bg-white'
                     >
                         <div>
                             {stars}
@@ -167,25 +167,22 @@ return(
                                     </a>
                                 </div>
                         </div>
-                        <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
+                        <div className='flex justify-center mb-4 py-1 border-b'>
+                                <h1 className='text-2xl mt-4'>Bio</h1>
+                            </div>
+                        <div className="mt-1 py-1 text-center">
                             <div className="flex flex-wrap justify-center">
                                 <div className="w-full lg:w-9/12 px-4">
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
                                         {teacher ? teacher.tag_line: ''} 
                                     </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-                            <div className="flex flex-wrap justify-center">
-                                <div className="w-full lg:w-9/12 px-4">
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <p className="mb-4 text-s leading-relaxed text-blueGray-700">
                                         {teacher ? teacher.bio: ''} 
                                     </p>
                                 </div>
                             </div>
                         </div>
-                        <div className='mx-auto'>
+                        <div className='mx-auto flex justify-center'>
                             <a href={`/teacher/${id}/edit`} className={teacherId === id ? 'inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 mb-6  text-white transition duration-150 ease-in-out' : 'hidden'}>
                                         Edit my profile
                             </a>

@@ -36,7 +36,8 @@ function App() {
 
     return (
         <Router>
-            <Navbar />
+            <Navbar 
+			currentUser={currentUser} setCurrentUser={setCurrentUser}/>
 				<Routes>
 					<Route 
 						path="/" 

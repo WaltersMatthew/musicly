@@ -77,7 +77,7 @@ export default function Teacher(){
                 return(
                     <div 
                         key={`review${review.id}`}
-                        className='border m-2 bg-white drop-shadow-lg'
+                        className='border m-2 bg-white drop-shadow-lg p2 rounded-xl'
                     >
                         <div>
                             {stars}

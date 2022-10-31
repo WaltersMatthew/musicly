@@ -15,17 +15,20 @@ export default function Login(){
                 email,
                 password
             }
-            const response = await axios.get('http://localhost:8000/api/users', reqBody)
+            const response = await axios.get('http://localhost:8000/api/users/', reqBody)
             for(let i = 0; i < response.data.length; i++){
                 if (email == response.data[i].email){
                     window.localStorage.setItem('id', response.data[i].id)
                     if(response.data[i].is_teacher == true){
                         window.localStorage.setItem('isTeacher', 'teacher')
                         navigate(`/teacher/${response.data[i].id}/dashboard`)
+                        window.location.reload()
                     }
                     else{
                         window.localStorage.setItem('isTeacher', 'student')
+                        // do a force page reload
                         navigate(`/search`)
+                        window.location.reload()
                     }
                 }
                 else{

@@ -1,13 +1,33 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Navbar(){
+    const [localId, setLocalId] = useState(localStorage.getItem('id'))
+    const [isTeacher, setIsTeacher] = useState('')
+    let isLoggedIn = localId
+    // const id = localStorage.getItem('id')
     
-    const id = localStorage.getItem('id')
+    
+    // useEffect(() => {
+        window.addEventListener('localstorage', () => {
+          // When local storage changes, dump the list to
+          // the console.
+        //   localStorage.getItem('id')
+        //   setLocalId(localStorage.getItem('id') ? '' :localStorage.getItem('id'))    
+          setLocalId(localStorage.getItem('id'))    
+        });
+        
+        // }, [])
+
 
     const logOut = () =>{
         localStorage.removeItem('id')
         localStorage.removeItem('isTeacher')
+        setLocalId('')
+        setIsTeacher('')
     }
+
+    // const isLoggedIn = localStorage.id 
 
     const loggedOut =(
         <ul className='flex justify-between'>
@@ -51,7 +71,7 @@ export default function Navbar(){
                 <li className='m-3'>
                     <Link 
                         className='inline-block border border-blue-500 rounded py-2 px-4 bg-blue-500 hover:bg-blue-700 text-white transition duration-150 ease-in-out'
-                        to={`/teacher/${id}/dashboard`}
+                        to={`/teacher/${localId}/dashboard`}
                         >
                         My Dashboard
                     </Link>
@@ -119,7 +139,7 @@ export default function Navbar(){
     
     return(
         <nav className='bg-white'>
-            {localStorage.id ? loggedIn : loggedOut}
+            {isLoggedIn ? loggedIn : loggedOut}
         </nav>
     )
 }

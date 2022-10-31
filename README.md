@@ -156,8 +156,12 @@ source .env/bin/activate
 # Post project reflections
 
 ## hurdles/roadblocks
-* Our biggest hurdle was generally learning Django on the fly. With user auth and building out the api routes, this part ended up taking a lot more of our time than we anticipated 
-* Another hurdle was figuring out using localStorage to keep a user logged in once they were authorized
+* Our biggest hurdle was generally learning Django on the fly. We ran into issues with Django's built-in user authentication and custom base user model consistently hashing user passwords in the database. We also spent considerable time trying to understand how routing worked with the Django REST framework package and building customized routes
+* Another hurdle was figuring out using LocalStorage to keep a user logged in once they were authorized
 
 ## future plans
-* include a seach function for students to find a teacher that teaches the instrument they are looking for
+* Include a seach function for students to find a teacher that teaches the instrument they are looking for.
+* Update user authentication to rely on token verification.
+* Build customized backend API endpoints to view and edit data through join tables. 
+* Allow students to create their own profile.
+

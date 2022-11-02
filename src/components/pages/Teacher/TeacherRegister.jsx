@@ -16,6 +16,7 @@ export default function TeacherRegister(){
     const [msg, setMsg] = useState('')
     const [id, setId] = useState('')
 
+    
     const navigate = useNavigate()
 
     const handleSubmit = async e =>{

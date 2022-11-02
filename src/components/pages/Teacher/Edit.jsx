@@ -23,7 +23,7 @@ export default function Edit(){
         const getTeacher = async () => {
             try {
                 
-                const response = await axios.get(`/api/users/${id}`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${id}`)
                 setTeacher(response.data)
                 setName(response.data.name)
                 setEmail(response.data.email)
@@ -59,7 +59,7 @@ export default function Edit(){
             }
             console.log(reqBody)
             console.log(id)
-            await axios.patch(`http://localhost:8000/api/users/${id}/`, reqBody)
+            await axios.patch(`${process.env.REACT_APP_SERVER_URL}/api/users/${id}/`, reqBody)
         } catch (error) {
             console.log(error)
         }

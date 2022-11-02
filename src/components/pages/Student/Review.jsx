@@ -25,9 +25,9 @@ export default function Review(){
             }
         
             // console.log(reqBody)
-            await axios.post('http://localhost:8000/api/reviews/', reqBody)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/reviews/`, reqBody)
 
-            await axios.post(`http://localhost:8000/api/reviews/${id}/update_rating_fields/`, reqBody)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/reviews/${id}/update_rating_fields/`, reqBody)
             
         } catch(err) {
             console.log(err)

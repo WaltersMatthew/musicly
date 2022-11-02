@@ -36,9 +36,9 @@ export default function TeacherRegister(){
                 is_teacher
             }
             console.log(reqBody)
-            await axios.post(`http://localhost:8000/api/users/`, reqBody)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/`, reqBody)
 
-            const teacherResponse = await axios.get(`http://localhost:8000/api/users/`)
+            const teacherResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/`)
             window.localStorage.setItem('isTeacher', 'teacher')
             console.log(teacherResponse.data)
             await teacherResponse.data.map(user => {

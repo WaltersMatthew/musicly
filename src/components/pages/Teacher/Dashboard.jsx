@@ -15,7 +15,7 @@ export default function Dashboard(){
     useEffect(()=>{
         const getInquiries = async () =>{
             try{
-                const response = await axios.get(`http://localhost:8000/api/inquiries/`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/inquiries/`)
                 setInquiries(response.data)
             }catch(err){
                 console.log(err)
@@ -28,7 +28,7 @@ export default function Dashboard(){
                 const reqBody = {
                     viewed: true
                 }
-                await axios.put(`http://localhost:8000/api/inquiries/`, reqBody)
+                await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/inquiries/`, reqBody)
             } catch (error) {
                 console.log(error)
             }

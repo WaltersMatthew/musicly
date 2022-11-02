@@ -9,7 +9,7 @@ export default function Search(){
     useEffect(() =>{
         const getTeachers = async () =>{
             try {
-                const response = await axios.get('http://localhost:8000/api/users/')
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/`)
                 setTeachers(response.data)
             } catch (error) {
                 console.log(error)
@@ -20,7 +20,7 @@ export default function Search(){
     
     const getData = async e => {
         try {
-            const response = await axios.get('http://localhost:8000/api/users/')
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/`)
             console.log(response.data)
             setTeachers(response.data)
         } catch (error) {

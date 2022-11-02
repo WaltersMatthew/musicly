@@ -31,7 +31,7 @@ export default function Inquiry(){
                 preferred_teacher: id
             }
             console.log(reqBody)
-            await axios.post('http://localhost:8000/api/inquiries/', reqBody)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/inquiries/`, reqBody)
 
         }catch(err){
             console.log(err)

@@ -25,7 +25,7 @@ export default function Teacher(){
     useEffect(() =>{
         const getTeacher = async () => {
             try {
-                const response = await axios.get(`/api/users/${id}/`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${id}/`)
                 setTeacher(response.data)
                 // console.log(response.data)
             } catch (error) {
@@ -38,7 +38,7 @@ export default function Teacher(){
     useEffect(() =>{
         const getReviews = async () => {
             try {
-                const response = await axios.get(`/api/reviews/`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/reviews/`)
                 setReviews(response.data)
                 // console.log(response.data)
             } catch (error) {

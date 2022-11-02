@@ -20,10 +20,10 @@ export default function StudentRegister(){
                 email,
                 password
             }
-            await axios.post('http://localhost:8000/api/users/', reqBody)
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/users/`, reqBody)
             // console.log(reqBody)
 
-            const studentResponse = await axios.get(`http://localhost:8000/api/users/`)
+            const studentResponse = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/`)
             window.localStorage.setItem('isTeacher', 'student')
             console.log(studentResponse.data)
             await studentResponse.data.map(user => {

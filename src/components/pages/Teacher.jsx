@@ -1,8 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation} from 'react-router-dom'
 
-export default function Teacher(){
+export default function Teacher(props){
+    const location = useLocation()
+    const { from } = location.state
+
     const [teacher, setTeacher] = useState()
     const [reviews, setReviews] = useState()
     // const [email, setEmail] = useState()
@@ -22,31 +25,31 @@ export default function Teacher(){
             />
         </div>
     )
-    useEffect(() =>{
-        const getTeacher = async () => {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${id}/`)
-                setTeacher(response.data)
-                // console.log(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getTeacher()
-    },[])
+    // useEffect(() =>{
+    //     const getTeacher = async () => {
+    //         try {
+    //             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/${id}/`)
+    //             setTeacher(response.data)
+    //             // console.log(response.data)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     getTeacher()
+    // },[])
 
-    useEffect(() =>{
-        const getReviews = async () => {
-            try {
-                const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/reviews/`)
-                setReviews(response.data)
-                // console.log(response.data)
-            } catch (error) {
-                console.log(error)
-            }
-        }
-        getReviews()
-    },[])
+    // useEffect(() =>{
+    //     const getReviews = async () => {
+    //         try {
+    //             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/reviews/`)
+    //             setReviews(response.data)
+    //             // console.log(response.data)
+    //         } catch (error) {
+    //             console.log(error)
+    //         }
+    //     }
+    //     getReviews()
+    // },[])
 
     // if (teacher.instruments) {
     //     setInstruments(teacher.instruments)
@@ -54,7 +57,7 @@ export default function Teacher(){
 
     const teacherId = localStorage.getItem('id')
     
-    // mapping of reviewsin process!!
+    // mapping of reviews in process!!
     if (reviews) {
         currentTeacherReviews = reviews.map(review => {
             if (review.teacher == id) {
@@ -107,7 +110,7 @@ return(
                                 <div className='flex justify-center'>
                                     <img 
                                         alt="Teacher" 
-                                        src={teacher ? teacher.image : 'http://www.placecorgi.com/200/200'} 
+                                        src={props.image} 
                                         className="shadow-xl rounded-full h-auto align-middle -mt-6 border-none  max-w-150-px" 
                                         />
                                 </div>
@@ -116,7 +119,7 @@ return(
                                 <div className="flex justify-center py-4 lg:pt-4 pt-8">
                                     <div className="mr-4 p-3 text-center">
                                         <span className="text-xl font-bold block uppercase tracking-wide text-blueGray-600">
-                                            {teacher ? teacher.years_experience : 'hello'}
+                                            {props.years_experience}
                                         </span>
                                         <span className="text-sm text-blueGray-400">Years experience</span>
                                     </div>

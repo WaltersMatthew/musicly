@@ -1,11 +1,14 @@
-import axios from 'axios'
+// import axios from 'axios'
+// import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import TeacherCard from '../partials/TeacherCard'
-import { useState, useEffect } from 'react'
 
 export default function Search(){
-    const [teachers, setTeachers] = useState([])
-    const [input, setInput] = useState('')
-    
+    // const [teachers, setTeachers] = useState([])
+    // const [input, setInput] = useState('')
+    const location = {
+        pathname: '/search'
+    }
     // ** useEffect to hit backend API **
 
     // useEffect(() =>{
@@ -72,6 +75,8 @@ export default function Search(){
 
     return(
         <div>
+            {/* ** SEARCH BAR ** */}
+
             {/* <form className="w-full max-w-sm mx-auto mt-20">
                 <div className="flex items-center border-b border-teal-500 py-2">
                     <label htmlFor="search"></label>
@@ -98,7 +103,7 @@ export default function Search(){
                 <div className="flex flex-wrap -mx-1 lg:-mx-4">
                     <TeacherCard 
                         id = {1}
-                        name = {"Mike Flannigan"}
+                        name = {"Walt Flannigan"}
                         image = {`https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80`}
                         tag_line = {"You can learn anything with the right tools!"}
                         years_experience = {12}

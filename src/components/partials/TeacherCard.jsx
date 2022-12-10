@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 export default function Navbar(props){
-    const location = useLocation()
-    const { from } = location.state
+
+
 return(
     <div key={props.id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <section className="overflow-hidden rounded-lg shadow-lg">
@@ -30,6 +29,7 @@ return(
 
                                     }
                                 }}
+                                state={{ from: "TeacherCard"}}
                             >
                             </Link>
                             {props.name}

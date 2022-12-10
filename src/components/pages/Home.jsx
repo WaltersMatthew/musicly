@@ -1,4 +1,8 @@
+import { useState } from "react"
 export default function Home(){
+    const [teacherOne] = useState({
+        
+    })
     return(
         <section className="pt-10 bg-[#F3F4F6]">
             <div className="container mx-auto">
@@ -33,7 +37,7 @@ export default function Home(){
                                     Sign up and find the an experienced teacher to help you to take your skills to the next level.  
                                 </p>
                                 <a
-                                    href="/student/search"
+                                    href="/search"
                                     className="
                                     inline-block
                                     py-2
@@ -81,7 +85,7 @@ export default function Home(){
                             </p>
 
                             <a
-                                href="/teacher/dashboard"
+                                href="teacher/1/dashboard"
                                 className="
                                 inline-block
                                 py-2

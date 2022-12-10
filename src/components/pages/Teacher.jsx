@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react'
 import { Link, useParams, useLocation} from 'react-router-dom'
 
 export default function Teacher(props){
-    const location = useLocation()
-    const { from } = location.state
+    // const location = useLocation()
+    // const { from } = location.state
 
     const [teacher, setTeacher] = useState()
     const [reviews, setReviews] = useState()
@@ -14,7 +14,7 @@ export default function Teacher(props){
     // const [bio, setBio] = useState()
     // const [yearsExperience, setYearsExperience] = useState()
     // const [acceptingStudents, setAccceptingStudents] = useState()
-    const [instruments, setInstruments] = useState()
+    // const [instruments, setInstruments] = useState()
     // const [location, setLocation] = useState()
     let currentTeacherReviews = null
     const { id } = useParams()
@@ -60,19 +60,19 @@ export default function Teacher(props){
     // mapping of reviews in process!!
     if (reviews) {
         currentTeacherReviews = reviews.map(review => {
-            if (review.teacher == id) {
+            if (review.teacher === id) {
                 let stars = 0
                 console.log(review)
                 if(reviews){
-                    if(review.rating == 5){ 
+                    if(review.rating === 5){ 
                         stars = '⭐️⭐️⭐️⭐️⭐️'
-                    }else if (review.rating == 4) {
+                    }else if (review.rating === 4) {
                         stars = '⭐️⭐️⭐️⭐️'
-                    }else if (review.rating == 3){
+                    }else if (review.rating === 3){
                         stars = '⭐️⭐️⭐️'
-                    }else if (review.rating == 2){
+                    }else if (review.rating === 2){
                         stars = '⭐️⭐️'
-                    }else if (review.rating == 1){
+                    }else if (review.rating === 1){
                         stars = '⭐️'
                     }
                 }
@@ -99,7 +99,7 @@ export default function Teacher(props){
 })
 }
 
-
+console.log(props)
 return(
     <section className="bg-blueGray-50">
             <div className="w-full lg:w-10/12 mx-auto">

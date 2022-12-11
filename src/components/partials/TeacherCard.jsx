@@ -7,7 +7,7 @@ return(
     <div key={props.id} className="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
                 <section className="overflow-hidden rounded-lg shadow-lg">
 
-                    <a href={`/teacher/${props.id}`}>
+                    <a href={`/teacher`}>
                         <img alt="Your teacher" className="max-h-60 max-w-sm block h-auto w-full mx-auto" src={props.image}/>
                     </a>
 
@@ -15,7 +15,7 @@ return(
                             <Link
                                 className="no-underline hover:underline text-black" 
                                 to={{
-                                    pathname: `/teacher/${props.id}`,
+                                    pathname: `/teacher`,
                                     state: {
                                         id: props.id,
                                         image: props.image,

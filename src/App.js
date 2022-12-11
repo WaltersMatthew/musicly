@@ -70,7 +70,7 @@ function App() {
 					/>
 
 					<Route
-						path="/teacher/:id"
+						path="/teacher"
 						element={<Teacher />}
 					/>
 

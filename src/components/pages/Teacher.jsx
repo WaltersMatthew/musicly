@@ -144,6 +144,7 @@ return(
                             </div>
                         </div>
                         <div className="text-center mt-10">
+                            <p className='italic'>(sample teacher page)</p>
                             <h3 className="text-3xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
                                 Lorraine Jones
                             </h3>
